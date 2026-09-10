@@ -4,7 +4,7 @@ export default function Experience() {
   const experiences = [
     {
       id: 1,
-      year: '2025 - Present',
+      year: 'Present',
       title: 'MERN Stack Developer',
       description:
         'Building modern web applications using React.js, Node.js, Express.js and MongoDB.',
