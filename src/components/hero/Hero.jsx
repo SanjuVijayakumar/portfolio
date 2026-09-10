@@ -14,7 +14,7 @@ const Hero = () => {
                 Hi, I'm <span className='text-blue-400'>Sanju V</span>
                 </h1>
                 <h2 className='text-gray-300 text-xl sm:text-2xl font-medium mb-6'>
-                MERN Stack Deeveloper
+                MERN Stack Developer
                 </h2>
                 <p data-aos= "fade-up" data-aos-delay="300" className='text-gray-400 text-base max-w-md mb-8'>
                 I create beautiful, responsive, and user-friendly web applications using modern technologies.
