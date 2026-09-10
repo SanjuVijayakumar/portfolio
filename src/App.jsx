@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import Hero from './components/hero/Hero'
+import Skills from './components/skills/Skills'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h2>Hello world</h2>
-    </>
+    <main>
+      <Hero />
+      <Skills />
+    </main>
   )
 }
 
