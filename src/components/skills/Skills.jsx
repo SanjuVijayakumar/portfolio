@@ -6,37 +6,96 @@ import Filter from '../../assets/filter.png'
 
 export default function Skills() {
   return (
-    <main id="skills" className="py-10 px-4 sm:px-6 md:py-16 md:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div data-aos= "fade-up" data-aos-delay="300" className="relative flex flex-col justify-center">
-          <p className="text-sm font-medium text-blue-600 uppercase tracking-wider">Skills</p>
-          <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950">Full-Stack Developer</h1>
-          <p className="mt-5 text-sm sm:text-base leading-7 text-slate-600">
-            I build modern, responsive and user-friendly web applications using modern frontend and backend technologies.
+    <section id="skills" className="text-gray-600 body-font bg-white">
+      <div className="container px-5 py-20 md:py-24 mx-auto">
+        <div className="flex flex-col text-center w-full mb-16">
+          <p data-aos="fade-up" data-aos-delay="200" className="text-blue-600 font-semibold uppercase tracking-widest text-sm mb-3">
+            My Skills
           </p>
 
-          {/* Download CV */}
-          <a href={Sample} download>
-            <button data-aos= "fade-up" data-aos-delay="500" type="button" className="mt-6 text-white bg-blue-950 hover:bg-blue-700 focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 transition">
-              Download CV
-            </button>
-          </a>
+          <h1 data-aos="fade-up" data-aos-delay="300" className="sm:text-4xl text-3xl font-bold title-font text-blue-950 mb-5">Full-Stack Developer</h1>
+          <p data-aos="fade-up" data-aos-delay="400" className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">
+            I build modern, responsive and user-friendly web applications using React, Node.js, Express and MongoDB.
+          </p>
         </div>
 
-        {/* Project Images */}
-        <div data-aos= "fade-up" data-aos-delay="300" className="grid grid-cols-2 gap-4 lg:gap-6">
+        {/* Skills Cards */}
+        <div
+          data-aos="fade-up" data-aos-delay="500" className="flex flex-wrap -m-4 text-center">
 
-          {/* Expense Tracker */}
-          <img src={Expense} alt="Expense Tracker project" className="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-lg col-span-2"/>
+          {/* Frontend */}
+          <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="border-2 border-blue-100 hover:border-blue-400 px-4 py-8 rounded-2xl transition duration-300 hover:shadow-lg h-full">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-50">
+                <span className="text-2xl">⚛️</span>
+              </div>
+              <h2 className="title-font font-semibold text-2xl text-blue-950">Frontend</h2>
+              <p className="leading-relaxed mt-2 text-gray-500">React.js & Tailwind CSS</p>
+            </div>
+          </div>
 
-          {/* Weather App */}
-          <img src={Weather} alt="Weather App project" className="w-full h-40 sm:h-52 object-cover rounded-lg" />
+          {/* Backend */}
+          <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="border-2 border-blue-100 hover:border-blue-400 px-4 py-8 rounded-2xl transition duration-300 hover:shadow-lg h-full">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-50">
+                <span className="text-2xl">🟢</span>
+              </div>
+              <h2 className="title-font font-semibold text-2xl text-blue-950">Backend</h2>
+              <p className="leading-relaxed mt-2 text-gray-500">Node.js & Express.js</p>
+            </div>
+          </div>
 
-          {/* Product Filter */}
-          <img  src={Filter} alt="Product Filter project" className="w-full h-40 sm:h-52 object-cover rounded-lg" />
+          {/* Database */}
+          <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="border-2 border-blue-100 hover:border-blue-400 px-4 py-8 rounded-2xl transition duration-300 hover:shadow-lg h-full">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-50">
+                <span className="text-2xl">🍃</span>
+              </div>
+              <h2 className="title-font font-semibold text-2xl text-blue-950">Database</h2>
+              <p className="leading-relaxed mt-2 text-gray-500">MongoDB & Mongoose</p>
+            </div>
+          </div>
 
+          {/* Tools */}
+          <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="border-2 border-blue-100 hover:border-blue-400 px-4 py-8 rounded-2xl transition duration-300 hover:shadow-lg h-full">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-50">
+                <span className="text-2xl">🛠️</span>
+              </div>
+              <h2 className="title-font font-semibold text-2xl text-blue-950">Tools</h2>
+              <p className="leading-relaxed mt-2 text-gray-500">Git, GitHub & VS Code</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Content */}
+        <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* Project Preview */}
+          <div data-aos="fade-right" data-aos-delay="300" className="grid grid-cols-2 gap-4">
+            <img src={Expense} alt="Expense Tracker project" className="w-full h-44 sm:h-52 object-cover rounded-2xl shadow-md" />
+            <img src={Weather} alt="Weather App project" className="w-full h-44 sm:h-52 object-cover rounded-2xl shadow-md" />
+            <img src={Filter} alt="Product Filter project" className="w-full h-44 sm:h-52 object-cover rounded-2xl shadow-md col-span-2" />
+          </div>
+
+          {/* About Developer */}
+          <div data-aos="fade-left" data-aos-delay="400" className="lg:pl-8">
+            <p className="text-blue-600 font-semibold uppercase tracking-widest text-sm mb-3">What I Do</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-950 mb-5">Turning ideas into web applications</h2>
+            <p className="text-gray-500 leading-7 mb-6">
+              I enjoy building web applications that are clean, responsive
+              and easy to use. My focus is on creating complete applications
+              using the MERN stack, from the user interface to the backend
+              and database.
+            </p>
+
+            <a href={Sample} download>
+              <button ype="button" data-aos="fade-up" data-aos-delay="500" className="text-white bg-blue-950 hover:bg-blue-700 focus:outline-none font-medium rounded-full text-sm px-6 py-3 transition duration-300">
+                Download CV
+              </button>
+            </a>
+          </div>
         </div>
       </div>
-    </main>
+    </section>
   )
 }
