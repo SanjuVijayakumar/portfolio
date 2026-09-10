@@ -9,14 +9,14 @@ const Hero = () => {
       <Navbar />
 
         <section id='home' className='flex flex-col md:flex-row items-center justify-center w-full px-4 md:px-52 pb-4 md:pb-24 mt-24 md:mt-30 z-10'>
-            <div className='flex flex-col items-center md:items-start text-center md:text-left md:w-1/2'>
+            <div data-aos= "fade-up" className='flex flex-col items-center md:items-start text-center md:text-left md:w-1/2'>
                 <h1 className='text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4'>
                 Hi, I'm <span className='text-blue-400'>Sanju V</span>
                 </h1>
                 <h2 className='text-gray-300 text-xl sm:text-2xl font-medium mb-6'>
                 MERN Stack Deeveloper
                 </h2>
-                <p className='text-gray-400 text-base max-w-md mb-8'>
+                <p data-aos= "fade-up" data-aos-delay="300" className='text-gray-400 text-base max-w-md mb-8'>
                 I create beautiful, responsive, and user-friendly web applications using modern technologies.
                 </p>
                 <div className='flex gap-4'>
@@ -28,7 +28,7 @@ const Hero = () => {
                 </a>
                 </div>
             </div>
-            <div className='mt-10 md:mt-0 md:w-1/2 flex justify-center'>
+            <div data-aos= "fade-up" className='mt-10 md:mt-0 md:w-1/2 flex justify-center'>
                 <img 
                 src={heroImg} 
                 alt='Hero' 

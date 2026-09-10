@@ -9,7 +9,7 @@ function Navbar() {
     {id:5, name:'Contact', link:'#contact'},
   ]
   return (
-    <header className='absolute top-0 flex justify-center items-center body-font z-20'>
+    <header data-aos= "fade-up" className='absolute top-0 flex justify-center items-center body-font z-20'>
     <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-center'>
       <a className='flex title-font font-medium text-gray-900 mb-4 md:mb-0'>
         <span className='ml-3 mr-11 font-bold text-white text-3xl'>Portfolio</span>
