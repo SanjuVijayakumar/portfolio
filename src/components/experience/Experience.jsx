@@ -1,83 +1,167 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  Code2,
+  Server,
+  Database,
+} from 'lucide-react'
+
+const experiences = [
+  {
+    id: 1,
+    title: 'React.js',
+    icon: Code2,
+    description:
+      'Building responsive and interactive user interfaces using React.js, reusable components, hooks, and modern frontend practices.',
+    skills: ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
+  },
+  {
+    id: 2,
+    title: 'Node.js',
+    icon: Server,
+    description:
+      'Developing backend applications and REST APIs using Node.js with asynchronous programming and server-side JavaScript.',
+    skills: ['Node.js', 'JavaScript', 'REST API', 'npm'],
+  },
+  {
+    id: 3,
+    title: 'Express.js',
+    icon: Server,
+    description:
+      'Creating structured and scalable REST APIs using Express.js with routes, controllers, middleware, and error handling.',
+    skills: ['Express.js', 'REST API', 'Middleware', 'MVC'],
+  },
+  {
+    id: 4,
+    title: 'MongoDB',
+    icon: Database,
+    description:
+      'Working with MongoDB for storing and managing application data using collections, documents, queries, and Mongoose.',
+    skills: ['MongoDB', 'Mongoose', 'CRUD', 'Database'],
+  },
+]
 
 export default function Experience() {
-  const experiences = [
-    {
-      id: 1,
-      year: 'Present',
-      title: 'MERN Stack Developer',
-      description:
-        'Building modern web applications using React.js, Node.js, Express.js and MongoDB.',
-    },
-    {
-      id: 2,
-      year: '2021 - 2024',
-      title: 'Frontend Developer',
-      description:
-        'Developed responsive and user-friendly interfaces using React.js, JavaScript and Tailwind CSS.',
-    },
-    {
-      id: 3,
-      year: 'Projects',
-      title: 'Full-Stack Projects',
-      description:
-        'Created practical applications including expense trackers, weather apps, product filters and other React projects.',
-    },
-  ]
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % experiences.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + experiences.length) % experiences.length
+    )
+  }
+
+  const experience = experiences[currentIndex]
+  const Icon = experience.icon
 
   return (
-    <section id="experience" className="text-gray-600 body-font bg-slate-50">
-      <div className="container px-5 py-20 md:py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-16">
+    <section
+      id="experience"
+      className="py-16 px-4 sm:px-6 bg-slate-50"
+    >
+      <div className="max-w-5xl mx-auto">
 
-          <p data-aos="fade-up" data-aos-delay="200" className="text-blue-600 font-semibold uppercase tracking-widest text-sm mb-3">Experience</p>
-          <h1 data-aos="fade-up" data-aos-delay="300" className="sm:text-4xl text-3xl font-bold title-font text-blue-950 mb-5">My Development Journey</h1>
-          <p data-aos="fade-up" data-aos-delay="400" className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">
-            My journey in web development has focused on building modern,
-            responsive and practical applications while continuously
-            improving my frontend and backend skills.</p>
+        {/* Heading */}
+        <div
+          data-aos="fade-up"
+          className="text-center mb-10"
+        >
+          <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+            Experience
+          </p>
 
+          <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-blue-950">
+            My Technical Experience
+          </h2>
+
+          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+            Technologies I use to build modern full-stack web applications.
+          </p>
         </div>
 
-        {/* Cards */}
-        <div className="max-w-5xl mx-auto">
+        {/* Carousel */}
+        <div
+          data-aos="fade-up"
+          className="relative"
+        >
+          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 sm:p-10">
 
-          <div data-aos="fade-up" data-aos-delay="500" className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Technology */}
+            <div className="flex flex-col items-center text-center">
 
-            {experiences.map((experience) => (
-              <div key={experience.id} className="group bg-white border border-blue-100 rounded-2xl p-6 hover:border-blue-400 hover:shadow-xl transition duration-300">
-                <div className="w-fit px-4 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-5">{experience.year}</div>
-                <h2 className="text-xl font-bold text-blue-950 mb-3 group-hover:text-blue-600 transition">{experience.title}</h2>
-                <p className="text-gray-500 leading-7 text-sm">{experience.description}</p>
+              {/* Icon */}
+              <div className="w-20 h-20 rounded-2xl bg-blue-950 text-white flex items-center justify-center mb-5">
+                <Icon size={40} />
               </div>
-            ))}
 
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-bold text-blue-950">
+                {experience.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mt-4 text-slate-600 leading-7 max-w-2xl">
+                {experience.description}
+              </p>
+
+              {/* Skills */}
+              <div className="flex flex-wrap justify-center gap-3 mt-6">
+                {experience.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-medium"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between mt-10">
+
+              {/* Previous */}
+              <button
+                onClick={prevSlide}
+                className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-blue-950 hover:bg-blue-950 hover:text-white transition"
+              >
+                <ChevronLeft size={22} />
+              </button>
+
+              {/* Dots */}
+              <div className="flex gap-2">
+                {experiences.map((item, index) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      currentIndex === index
+                        ? 'w-8 bg-blue-950'
+                        : 'w-2.5 bg-slate-300'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Next */}
+              <button
+                onClick={nextSlide}
+                className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-blue-950 hover:bg-blue-950 hover:text-white transition"
+              >
+                <ChevronRight size={22} />
+              </button>
+
+            </div>
           </div>
-
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="600" className="mt-14 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-
-          <div className="text-center border-2 border-blue-100 bg-white px-4 py-6 rounded-2xl">
-            <h2 className="font-bold text-3xl text-blue-950">React</h2>
-            <p className="mt-2 text-sm text-gray-500">Frontend</p>
-          </div>
-
-          <div className="text-center border-2 border-blue-100 bg-white px-4 py-6 rounded-2xl">
-            <h2 className="font-bold text-3xl text-blue-950">Node.js</h2>
-            <p className="mt-2 text-sm text-gray-500">Backend</p>
-          </div>
-
-          <div className="text-center border-2 border-blue-100 bg-white px-4 py-6 rounded-2xl">
-            <h2 className="font-bold text-3xl text-blue-950">Express</h2>
-            <p className="mt-2 text-sm text-gray-500">API</p>
-          </div>
-
-          <div className="text-center border-2 border-blue-100 bg-white px-4 py-6 rounded-2xl">
-            <h2 className="font-bold text-3xl text-blue-950">MongoDB</h2>
-            <p className="mt-2 text-sm text-gray-500">Database</p>
-          </div>
-
+        {/* Technology indicator */}
+        <div className="text-center mt-5 text-sm text-slate-500">
+          {currentIndex + 1} / {experiences.length}
         </div>
 
       </div>

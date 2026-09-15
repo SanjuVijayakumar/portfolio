@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Expense from '../../assets/expense-tracker.png'
 import Weather from '../../assets/weather.png'
 import Filter from '../../assets/filter.png'
+import Movie from '../../assets/movie.png'
+import Pagination from '../../assets/pagination.png'
+import Chart from '../../assets/chart.png'
+import Note from '../../assets/notes.png'
+import Gallery from '../../assets/gallery.png'
 
 const ProjectCard = ({ image, title, description, link }) => (
   <div data-aos="fade-up" className="p-4 md:w-1/3 sm:mb-0 mb-6">
@@ -24,12 +29,27 @@ const ProjectCard = ({ image, title, description, link }) => (
 
 export default function Projects() {
 
+  const [showAll, setShowAll] = useState(false)
+
   const projects = [
+    {
+      title: 'Movie Search App',
+      image: Movie,
+      description:
+        'A movie search application that allows users to search and explore movies.',
+      link: 'https://movie-search-ten-mu.vercel.app/',
+    },
     {
       title: 'Expense Tracker',
       image: Expense,
       description: 'A responsive expense tracking application for managing income and expenses.',
-      link: 'https://expense-tracker-brown-five-67.vercel.app/'
+      link: 'https://expense-tracker-mauve-omega-90.vercel.app/'
+    },
+    {
+      title: 'Product Filter',
+      image: Filter,
+      description: 'A product browsing application with category, price filtering and sorting.',
+      link: 'https://product-filter-eosin.vercel.app/'
     },
     {
       title: 'Weather App',
@@ -38,12 +58,39 @@ export default function Projects() {
       link: 'https://weather-app-tau-six-64.vercel.app/'
     },
     {
-      title: 'Product Filter',
-      image: Filter,
-      description: 'A product browsing application with category, price filtering and sorting.',
-      link: 'https://product-filter-eosin.vercel.app/'
-    }
+      title: 'Pagination App',
+      image: Pagination,
+      description:
+        'A React pagination application for displaying API data page by page.',
+      link: 'https://pagination-nu-three.vercel.app/',
+    },,
+    {
+      title: 'React Chart',
+      image: Chart,
+      description:
+        'An interactive React chart application for visualizing data through dynamic and responsive charts.',
+      link: 'https://react-charts-one.vercel.app/',
+    },
+    {
+      title: 'Note App',
+      image: Note,
+      description:
+        'A responsive React note-taking application for creating, editing, and managing personal notes easily.',
+      link: 'https://notes-app-self-psi.vercel.app/',
+    },
+    {
+      title: 'Image Gallery',
+      image: Gallery,
+      description:
+        'A responsive React image gallery application that allows users to search, browse, and view images in an attractive gallery layout.',
+      link: 'https://image-gallery-pixabay-iota.vercel.app/',
+    },
   ]
+
+  // Show only first 3 projects initially
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, 3)
 
   return (
     <section id="projects" className="text-gray-600 body-font bg-blue-950">
@@ -57,7 +104,7 @@ export default function Projects() {
 
         <div className="flex flex-wrap -m-4">
 
-          {projects.map((project) => (
+          {/* {projects.map((project) => (
             <ProjectCard
               key={project.title}
               title={project.title}
@@ -65,9 +112,34 @@ export default function Projects() {
               description={project.description}
               link={project.link}
             />
+          ))} */}
+          {visibleProjects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              link={project.link}
+            />
           ))}
 
         </div>
+
+        {/* View More Button */}
+        {projects.length > 3 && (
+          <div
+            data-aos="fade-up"
+            className="flex justify-center mt-10"
+          >
+            <button
+              type="button"
+              onClick={() => setShowAll(!showAll)}
+              className="bg-blue-950 hover:bg-blue-800 text-white font-semibold px-7 py-3 rounded-full transition duration-300"
+            >
+              {showAll ? 'View Less' : 'View More'}
+            </button>
+          </div>
+        )}
 
       </div>
     </section>
